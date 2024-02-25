@@ -9,14 +9,15 @@ import org.eclipse.swt.widgets.Text;
 import javax.swing.JOptionPane;
 //import org.w3c.dom.Text;
 
+/** @author. Raúl Cantón Gómez*/
 public class Calculadora {
 
-    // Constantes
+    /** Constantes*/
     final int MAX_DIGITS = 5;
     final int MODE_ENTRADA = 0;
     final int MODE_RESULTADO = 1;
 
-    //Variables
+    /**Variables*/
     int modo;
     int digito;
     int valor1;
@@ -25,7 +26,7 @@ public class Calculadora {
     boolean inicializa_resultado;
 
     private static Text texto_resultado;
-
+    /** Constructor */
     public Calculadora(boolean gui) {
 
         //Inicialización de las variables.
@@ -34,7 +35,7 @@ public class Calculadora {
         if (gui==true) dibujaCalculadora();
 
     }
-
+    /** Método que crea la interfaz gráfica del progrrama*/
     private void dibujaCalculadora() {
 
         Display display = Display.getDefault();
@@ -46,7 +47,7 @@ public class Calculadora {
         //Números
         //------------------------------------------------ -
 
-        //botón con el número 0
+        /** Botón con el número 0*/
         Button button_0 = new Button(shlCalculadora, SWT.NONE);
         button_0.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -57,7 +58,7 @@ public class Calculadora {
         button_0.setText("0");
         button_0.setBounds(23, 163, 40, 33);
 
-        //botón con el número 1
+        /** Botón con el número 1 */
         Button button_1 = new Button(shlCalculadora, SWT.NONE);
         button_1.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -68,7 +69,7 @@ public class Calculadora {
         button_1.setText("1");
         button_1.setBounds(23, 124, 40, 33);
 
-        //botón con el número 2
+        /** Botón con el número 2 */
         Button button_2 = new Button(shlCalculadora, SWT.NONE);
         button_2.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -79,7 +80,7 @@ public class Calculadora {
         button_2.setText("2");
         button_2.setBounds(69, 124, 40, 33);
 
-        //botón con el número 3
+        /** Botón con el número 3 */
         Button button_3 = new Button(shlCalculadora, SWT.NONE);
         button_3.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -90,7 +91,7 @@ public class Calculadora {
         button_3.setText("3");
         button_3.setBounds(115, 124, 40, 33);
 
-        //botón con el número 4
+        /** Botón con el número 4 */
         Button button_4 = new Button(shlCalculadora, SWT.NONE);
         button_4.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -101,7 +102,7 @@ public class Calculadora {
         button_4.setText("4");
         button_4.setBounds(23, 85, 40, 33);
 
-        //botón con el número 5
+        /** Botón con el número 5 */
         Button button_5 = new Button(shlCalculadora, SWT.NONE);
         button_5.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -112,7 +113,7 @@ public class Calculadora {
         button_5.setText("5");
         button_5.setBounds(69, 85, 40, 33);
 
-        //botón con el número 6
+        /** Botón con el número 6 */
         Button button_6 = new Button(shlCalculadora, SWT.NONE);
         button_6.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -123,7 +124,7 @@ public class Calculadora {
         button_6.setText("6");
         button_6.setBounds(115, 85, 40, 33);
 
-        //botón con el número 7
+        /** Botón con el número 7 */
         Button button_7 = new Button(shlCalculadora, SWT.NONE);
         button_7.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -134,7 +135,7 @@ public class Calculadora {
         button_7.setText("7");
         button_7.setBounds(23, 46, 40, 33);
 
-        //botón con el número 8
+        /** Botón con el número 8 */
         Button button_8 = new Button(shlCalculadora, SWT.NONE);
         button_8.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -145,7 +146,7 @@ public class Calculadora {
         button_8.setBounds(69, 46, 40, 33);
         button_8.setText("8");
 
-        //botón con el número 9
+        /** Botón con el número 9 */
         Button button_9 = new Button(shlCalculadora, SWT.NONE);
         button_9.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -160,7 +161,7 @@ public class Calculadora {
         //Operaciones
         //------------------------------------------------ -
 
-        //botón con la operacion de división
+        /** Botón con la operacion de división */
         Button button_12 = new Button(shlCalculadora, SWT.NONE);
         button_12.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -171,7 +172,7 @@ public class Calculadora {
         button_12.setText("/");
         button_12.setBounds(178, 46, 40, 33);
 
-        //botón con la operacion de multiplicación
+        /** Botón con la operacion de multiplicación */
         Button button_13 = new Button(shlCalculadora, SWT.NONE);
         button_13.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -182,7 +183,7 @@ public class Calculadora {
         button_13.setText("*");
         button_13.setBounds(178, 85, 40, 33);
 
-        //botón con la operacion de suma
+        /** Botón con la operacion de suma */
         Button button_14 = new Button(shlCalculadora, SWT.NONE);
         button_14.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -193,7 +194,7 @@ public class Calculadora {
         button_14.setText("+");
         button_14.setBounds(178, 124, 40, 33);
 
-        //botón con la operacion de resto
+        /** Botón con la operacion de resto */
         Button button_15 = new Button(shlCalculadora, SWT.NONE);
         button_15.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -204,7 +205,7 @@ public class Calculadora {
         button_15.setText("-");
         button_15.setBounds(178, 163, 40, 33);
 
-        //botón con la operacion de igual
+        /** Botón con la operacion de igual */
         Button button_11 = new Button(shlCalculadora, SWT.NONE);
         button_11.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -215,7 +216,7 @@ public class Calculadora {
         button_11.setText("=");
         button_11.setBounds(69, 163, 86, 33);
 
-        //Texto donde se visualiza el resultado
+        /** Texto donde se visualiza el resultado */
         texto_resultado = new Text(shlCalculadora, SWT.BORDER);
         texto_resultado.setText("0");
         texto_resultado.setBounds(22, 19, 196, 21);
@@ -228,7 +229,7 @@ public class Calculadora {
             }
         }
     }
-
+    /** Método que inicializa variables */
     public void inicializa() {
         operacion = "null";
         valor1 = 0;
@@ -236,20 +237,20 @@ public class Calculadora {
         modo = MODE_ENTRADA;
         inicializa_resultado = true;
     }
-
+    /** Método que devuelve el resultado */
     public String getResultadoString (){
         return texto_resultado.getText();
     }
-
+    /** Método que devuelve el resultado en formato cadena */
     public void setResultadoString(String s){
         texto_resultado.setText(s);
     }
-
+    /** Método que devuelve el resultado en formato entero */
     public int getResultadoInt() {
         String resultado = texto_resultado.getText();
         return Integer.parseInt(resultado);
     }
-
+    /** Método para añadir un nuevo dígito */
     public void anadeNuevoDigito(int digito){
         if (inicializa_resultado)
             setResultadoString("");
@@ -267,7 +268,7 @@ public class Calculadora {
         modo = MODE_ENTRADA;
         inicializa_resultado = false;
     }
-
+    /** Método para ejecutar un operador */
     public void ejecutarOperador(String new_operacion) {
 
         int resultado;
@@ -289,7 +290,7 @@ public class Calculadora {
         inicializa_resultado = true;
         operacion = new_operacion;
     }
-
+    /** Método para ejecutar el operador igual */
     public void ejecutarIgual(){
         int resultado = 0;
 
@@ -299,7 +300,7 @@ public class Calculadora {
 
         operacion = "null";
     }
-
+    /** Método para ejecutar una operación según operador escogido */
     public int ejecutarOperacion() {
         int resultado = 0;
 
@@ -329,14 +330,14 @@ public class Calculadora {
 
         return resultado;
     }
-
+    /** Método para mostrar el resultado por pantalla */
     public void muestraResultado(int resultado){
         setResultadoString(Integer.toString(resultado));
         valor1 = resultado;
         modo = MODE_RESULTADO;
         inicializa_resultado = true;
     }
-
+    /** Método principal */
     public static void main(String args[]) {
         Calculadora calculadora = new Calculadora(true);
     }
